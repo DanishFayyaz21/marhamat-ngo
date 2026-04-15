@@ -6,7 +6,7 @@ import { motion, useScroll, useTransform, useInView } from "framer-motion";
 
 // ── Reveal image shown behind the curtain ─────────────────────────────────────
 const REVEAL_IMAGE =
-  "https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?q=80&w=2400&auto=format&fit=crop";
+  "https://images.unsplash.com/photo-1774504798059-0e7022b63b47?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D";
 
 // ── Shared text styles — identical to ScrollStory ─────────────────────────────
 const labelStyle = {
@@ -148,7 +148,7 @@ function VideoSection() {
           >
             {/* Aerial mountain travel footage — Pexels free stock */}
             <source
-              src="https://www.pexels.com/download/video/9240682/"
+              src="https://www.pexels.com/download/video/6893191/"
               type="video/mp4"
             />
           </video>
