@@ -113,35 +113,16 @@ function Navbar() {
           ))}
         </ul>
 
-        {/* Right side: Book Now + Arrow */}
+     
         <div className="hidden md:flex items-center gap-3">
           <Link
-            href="#book"
+            href="#donate"
             className="text-xs tracking-[0.2em] uppercase font-medium text-white border border-white/40 px-5 py-2.5 hover:bg-white hover:text-black transition-all duration-300"
             style={{ fontFamily: "var(--font-inter)" }}
           >
-            Book Now
+            Donate Now
           </Link>
-          <button
-            aria-label="Next"
-            className="w-10 h-10 flex items-center justify-center border border-white/40 text-white hover:bg-white hover:text-black transition-all duration-300"
-          >
-            <svg
-              width="16"
-              height="16"
-              viewBox="0 0 16 16"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M3 8H13M13 8L9 4M13 8L9 12"
-                stroke="currentColor"
-                strokeWidth="1.5"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
-          </button>
+         
         </div>
 
         {/* Mobile hamburger */}
