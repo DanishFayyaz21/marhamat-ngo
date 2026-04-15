@@ -8,32 +8,32 @@ import { motion, AnimatePresence, useScroll, useMotionValueEvent, useInView } fr
 const SCROLL_STEPS = [
   {
     image:
-      "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?q=80&w=1600&auto=format&fit=crop",
+      "https://images.pexels.com/photos/17286112/pexels-photo-17286112.jpeg",
     word: "Help",
   },
   {
     image:
-      "https://images.unsplash.com/photo-1448375240586-882707db888b?q=80&w=1600&auto=format&fit=crop",
+      "https://images.pexels.com/photos/20754865/pexels-photo-20754865.jpeg",
     word: "Educate",
   },
   {
     image:
-      "https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?q=80&w=1600&auto=format&fit=crop",
+      "https://images.pexels.com/photos/31894104/pexels-photo-31894104.jpeg",
     word: "Feed",
   },
   {
     image:
-      "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=1600&auto=format&fit=crop",
+      "https://images.pexels.com/photos/7617884/pexels-photo-7617884.jpeg",
     word: "Protect",
   },
   {
     image:
-      "https://images.unsplash.com/photo-1469474968028-56623f02e42e?q=80&w=1600&auto=format&fit=crop",
+      "https://images.pexels.com/photos/5329153/pexels-photo-5329153.jpeg",
     word: "Love",
   },
   {
     image:
-      "https://images.unsplash.com/photo-1419242902214-272b3f66ee7a?q=80&w=1600&auto=format&fit=crop",
+      "https://images.pexels.com/photos/30248240/pexels-photo-30248240.jpeg",
     word: "Care",
   },
 ];
