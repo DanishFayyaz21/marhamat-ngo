@@ -1,9 +1,8 @@
 "use client";
 
 import { memo } from "react";
-import { motion } from "framer-motion";
 
-// ── Charity Heart Icon — matches the charity theme ────────────────────────────
+// ── Charity Heart Icon — dark blue palette ────────────────────────────────────
 const CharityHeartIcon = memo(function CharityHeartIcon({ size = 28 }) {
   return (
     <svg
@@ -15,7 +14,7 @@ const CharityHeartIcon = memo(function CharityHeartIcon({ size = 28 }) {
     >
       <path
         d="M12 21.35L10.55 20.03C5.4 15.36 2 12.27 2 8.5C2 5.41 4.42 3 7.5 3C9.24 3 10.91 3.81 12 5.08C13.09 3.81 14.76 3 16.5 3C19.58 3 22 5.41 22 8.5C22 12.27 18.6 15.36 13.45 20.03L12 21.35Z"
-        stroke="white"
+        stroke="#1e3a8a"
         strokeWidth="1.8"
         strokeLinecap="round"
         strokeLinejoin="round"
@@ -25,7 +24,7 @@ const CharityHeartIcon = memo(function CharityHeartIcon({ size = 28 }) {
   );
 });
 
-// ── Footer columns data — UPDATED for Charity ─────────────────────────────────
+// ── Footer columns data ────────────────────────────────────────────────────────
 const FOOTER_COLUMNS = [
   {
     heading: "Our Mission",
@@ -45,17 +44,17 @@ const FOOTER_COLUMNS = [
 function Footer() {
   return (
     <footer
-      className="relative bg-black w-full"
+      className="relative bg-white w-full"
       style={{
-        borderTop: "1px solid rgba(255,255,255,0.10)",
-        borderBottom: "1px solid rgba(255,255,255,0.10)",
+        borderTop: "1px solid rgba(30,58,138,0.1)",
+        borderBottom: "1px solid rgba(30,58,138,0.1)",
       }}
     >
-      {/* ── Corner markers — consistent with other sections ─────────────── */}
-      <span className="absolute top-6 left-6 w-5 h-5 border-t border-l border-white/20 pointer-events-none" />
-      <span className="absolute top-6 right-6 w-5 h-5 border-t border-r border-white/20 pointer-events-none" />
-      <span className="absolute bottom-6 left-6 w-5 h-5 border-b border-l border-white/20 pointer-events-none" />
-      <span className="absolute bottom-6 right-6 w-5 h-5 border-b border-r border-white/20 pointer-events-none" />
+      {/* ── Corner markers ───────────────────────────────────────────────── */}
+      <span className="absolute top-6 left-6 w-5 h-5 border-t border-l border-blue-900/20 pointer-events-none" />
+      <span className="absolute top-6 right-6 w-5 h-5 border-t border-r border-blue-900/20 pointer-events-none" />
+      <span className="absolute bottom-6 left-6 w-5 h-5 border-b border-l border-blue-900/20 pointer-events-none" />
+      <span className="absolute bottom-6 right-6 w-5 h-5 border-b border-r border-blue-900/20 pointer-events-none" />
 
       {/* ── Main content ─────────────────────────────────────────────────── */}
       <div
@@ -81,7 +80,7 @@ function Footer() {
                   fontFamily: "var(--font-satoshi)",
                   fontSize: "clamp(1.5rem, 4vw, 2rem)",
                   fontWeight: 700,
-                  color: "white",
+                  color: "#1e3a8a",
                   letterSpacing: "-0.02em",
                 }}
               >
@@ -94,7 +93,7 @@ function Footer() {
             style={{
               fontFamily: "var(--font-inter)",
               fontSize: "0.7rem",
-              color: "rgba(255,255,255,0.45)",
+              color: "rgba(30,58,138,0.55)",
               lineHeight: 1.5,
               maxWidth: "80%",
             }}
@@ -105,7 +104,7 @@ function Footer() {
 
         {/* ── RIGHT: 3 columns (60%) ───────────────────────────────────── */}
         <div className="w-full md:w-[60%] grid grid-cols-1 sm:grid-cols-3 gap-10 sm:gap-6">
-          {FOOTER_COLUMNS.map((col, colIndex) => (
+          {FOOTER_COLUMNS.map((col) => (
             <div key={col.heading}>
               {/* Column heading */}
               <p
@@ -114,7 +113,7 @@ function Footer() {
                   fontSize: "0.6rem",
                   letterSpacing: "0.3em",
                   textTransform: "uppercase",
-                  color: "white",
+                  color: "#1e3a8a",
                   fontWeight: 600,
                   marginBottom: "1.4rem",
                 }}
@@ -132,17 +131,17 @@ function Footer() {
                         fontFamily: "var(--font-inter)",
                         fontSize: "clamp(0.72rem, 1vw, 0.82rem)",
                         fontWeight: 300,
-                        color: "rgba(255,255,255,0.42)",
+                        color: "rgba(30,58,138,0.55)",
                         letterSpacing: "0.02em",
                         textDecoration: "none",
                         transition: "color 0.25s ease",
                         display: "inline-block",
                       }}
                       onMouseEnter={(e) =>
-                        (e.currentTarget.style.color = "rgba(255,255,255,0.82)")
+                        (e.currentTarget.style.color = "#1e3a8a")
                       }
                       onMouseLeave={(e) =>
-                        (e.currentTarget.style.color = "rgba(255,255,255,0.42)")
+                        (e.currentTarget.style.color = "rgba(30,58,138,0.55)")
                       }
                     >
                       {item}
@@ -158,7 +157,7 @@ function Footer() {
       {/* ── Bottom bar ──────────────────────────────────────────────────────── */}
       <div
         style={{
-          borderTop: "1px solid rgba(255,255,255,0.07)",
+          borderTop: "1px solid rgba(30,58,138,0.08)",
           paddingTop: "1.4rem",
           paddingBottom: "1.6rem",
           paddingLeft: "clamp(2rem, 5vw, 5rem)",
@@ -177,7 +176,7 @@ function Footer() {
             fontSize: "0.5rem",
             letterSpacing: "0.28em",
             textTransform: "uppercase",
-            color: "rgba(255,255,255,0.22)",
+            color: "rgba(30,58,138,0.35)",
           }}
         >
           © {new Date().getFullYear()} Marhamat — All rights reserved
@@ -188,53 +187,33 @@ function Footer() {
             fontSize: "0.5rem",
             letterSpacing: "0.28em",
             textTransform: "uppercase",
-            color: "rgba(255,255,255,0.22)",
+            color: "rgba(30,58,138,0.35)",
           }}
         >
           Privacy Policy &nbsp;·&nbsp; Terms of Use
         </p>
       </div>
 
-      {/* ── Full-width image banner with TEXT MASK — UPDATED for Marhamat ──── */}
+      {/* ── Full-width text-mask banner ──────────────────────────────────────── */}
       <div
         style={{
           position: "relative",
           width: "100%",
           height: "clamp(160px, 20vh, 280px)",
           overflow: "hidden",
-          backgroundColor: "#000",
+          backgroundColor: "#fff",
         }}
       >
-        {/* Black background layer */}
+        {/* White background layer */}
         <div
           style={{
             position: "absolute",
             inset: 0,
-            backgroundColor: "#000",
+            backgroundColor: "#fff",
           }}
         />
 
-        {/* Image visible ONLY where text is — using mask-image */}
-        <div
-          style={{
-            position: "absolute",
-            inset: 0,
-            backgroundImage: `url("")`,
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-            // ── Mask: image shows only through text ──
-            maskImage: `url('data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 1200 200\'%3E%3Ctext x=\'50%25\' y=\'55%25\' dominant-baseline=\'middle\' text-anchor=\'middle\' font-family=\'Arial, sans-serif\' font-weight=\'bold\' font-size=\'clamp(60px, 10vw, 140px)\' fill=\'white\' letter-spacing=\'4\'%3EMARHAMAT%3C/text%3E%3C/svg%3E')`,
-            maskSize: "contain",
-            maskRepeat: "no-repeat",
-            maskPosition: "center",
-            WebkitMaskImage: `url('data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 1200 200\'%3E%3Ctext x=\'50%25\' y=\'55%25\' dominant-baseline=\'middle\' text-anchor=\'middle\' font-family=\'Arial, sans-serif\' font-weight=\'bold\' font-size=\'clamp(60px, 10vw, 140px)\' fill=\'white\' letter-spacing=\'4\'%3EMARHAMAT%3C/text%3E%3C/svg%3E')`,
-            WebkitMaskSize: "contain",
-            WebkitMaskRepeat: "no-repeat",
-            WebkitMaskPosition: "center",
-          }}
-        />
-
-        {/* Fallback text with stroke — visible if mask isn't supported */}
+        {/* Fallback text with dark blue stroke outline */}
         <div
           style={{
             position: "absolute",
@@ -251,7 +230,7 @@ function Footer() {
               fontWeight: 700,
               letterSpacing: "0.12em",
               color: "transparent",
-              WebkitTextStroke: "1.5px rgba(255,255,255,0.85)",
+              WebkitTextStroke: "1.5px rgba(30,58,138,0.25)",
               textTransform: "uppercase",
               margin: 0,
               userSelect: "none",

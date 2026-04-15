@@ -148,7 +148,7 @@ function VideoSection() {
           >
             {/* Aerial mountain travel footage — Pexels free stock */}
             <source
-              src="https://www.pexels.com/download/video/6893191/"
+              src="https://www.pexels.com/download/video/4362883/"
               type="video/mp4"
             />
           </video>
@@ -159,12 +159,12 @@ function VideoSection() {
             style={{ background: "rgba(0,0,0,0.45)" }}
           />
 
-          {/* Top gradient — blends with ScrollStory above */}
+          {/* Top gradient — blends with white ScrollStory above */}
           <div
             className="absolute top-0 left-0 right-0"
             style={{
               height: "22vh",
-              background: "linear-gradient(to bottom, #000 0%, transparent 100%)",
+              background: "linear-gradient(to bottom, #ffffff 0%, transparent 100%)",
             }}
           />
 

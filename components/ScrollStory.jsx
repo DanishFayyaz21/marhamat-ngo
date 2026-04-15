@@ -54,12 +54,12 @@ const STICKY_STEPS = [
   },
 ];
 
-// ── Shared text styles ─────────────────────────────────────────────────────────
+// ── Shared text styles — white bg + dark blue palette ─────────────────────────
 const wordStyle = {
   fontFamily: "var(--font-satoshi)",
   fontSize: "clamp(3rem, 6.5vw, 8.5rem)",
   fontWeight: 300,
-  color: "white",
+  color: "#1e3a8a",
   letterSpacing: "0.03em",
   lineHeight: 1.05,
 };
@@ -69,7 +69,7 @@ const prefixStyle = {
   fontSize: "0.58rem",
   letterSpacing: "0.32em",
   textTransform: "uppercase",
-  color: "rgba(255,255,255,0.32)",
+  color: "rgba(30,58,138,0.45)",
   marginBottom: "0.85rem",
   display: "block",
 };
@@ -78,10 +78,10 @@ const prefixStyle = {
 const CornerMarkers = memo(function CornerMarkers() {
   return (
     <>
-      <span className="absolute top-3 left-3 w-5 h-5 border-t border-l border-white/20 pointer-events-none" />
-      <span className="absolute top-3 right-3 w-5 h-5 border-t border-r border-white/20 pointer-events-none" />
-      <span className="absolute bottom-10 left-3 w-5 h-5 border-b border-l border-white/20 pointer-events-none" />
-      <span className="absolute bottom-10 right-3 w-5 h-5 border-b border-r border-white/20 pointer-events-none" />
+      <span className="absolute top-3 left-3 w-5 h-5 border-t border-l border-blue-900/20 pointer-events-none" />
+      <span className="absolute top-3 right-3 w-5 h-5 border-t border-r border-blue-900/20 pointer-events-none" />
+      <span className="absolute bottom-10 left-3 w-5 h-5 border-b border-l border-blue-900/20 pointer-events-none" />
+      <span className="absolute bottom-10 right-3 w-5 h-5 border-b border-r border-blue-900/20 pointer-events-none" />
       <p
         className="absolute bottom-5 left-5 pointer-events-none"
         style={{
@@ -89,7 +89,7 @@ const CornerMarkers = memo(function CornerMarkers() {
           fontSize: "0.48rem",
           letterSpacing: "0.34em",
           textTransform: "uppercase",
-          color: "rgba(255,255,255,0.38)",
+          color: "rgba(30,58,138,0.38)",
         }}
       >
         Marhamat
@@ -178,8 +178,7 @@ const StepItem = memo(function StepItem({ image, word, index }) {
   );
 });
 
-// ── Step 7: Sticky image (left) + FOR → EVERY → GENERATION on right ───────────
-// NOW WITH CHANGING IMAGES FOR EACH WORD!
+// ── Step 7: Sticky image (left) + HELP → THEM → RISE on right ─────────────────
 const StickyStep = memo(function StickyStep() {
   const containerRef = useRef(null);
   const [activeIndex, setActiveIndex] = useState(0);
@@ -201,7 +200,7 @@ const StickyStep = memo(function StickyStep() {
     <div ref={containerRef} className="relative" style={{ height: "400vh" }}>
       <div className="sticky top-0 h-screen flex flex-col md:flex-row">
 
-        {/* Left: sticky image — NOW CHANGES WITH SCROLL */}
+        {/* Left: sticky image — changes with scroll */}
         <motion.div
           key={currentStep.image}
           className="w-full md:w-1/2 flex items-center shrink-0"
@@ -241,7 +240,7 @@ const StickyStep = memo(function StickyStep() {
           </div>
         </motion.div>
 
-        {/* Right: one word at a time (ALSO CHANGES WITH SCROLL) */}
+        {/* Right: one word at a time (changes with scroll) */}
         <div
           className="w-full md:w-1/2 flex flex-col items-center md:items-start relative"
           style={{
@@ -276,7 +275,7 @@ const StickyStep = memo(function StickyStep() {
 // ── Main export ────────────────────────────────────────────────────────────────
 function ScrollStory() {
   return (
-    <section className="bg-black">
+    <section className="bg-white">
       {SCROLL_STEPS.map((step, i) => (
         <StepItem key={step.word} image={step.image} word={step.word} index={i} />
       ))}

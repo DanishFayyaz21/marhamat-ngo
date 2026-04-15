@@ -9,12 +9,12 @@ const BG_IMAGE =
 
 const PRESET_AMOUNTS = [500, 1000, 2500, 5000];
 
-// ── Shared input style ────────────────────────────────────────────────────────
+// ── Shared input style — white card, dark blue palette ────────────────────────
 const inputBase = {
   width: "100%",
-  background: "rgba(255,255,255,0.05)",
-  border: "1px solid rgba(255,255,255,0.13)",
-  color: "white",
+  background: "rgba(30,58,138,0.04)",
+  border: "1px solid rgba(30,58,138,0.18)",
+  color: "#1e3a8a",
   fontFamily: "var(--font-inter)",
   fontSize: "clamp(0.8rem, 1.1vw, 0.9rem)",
   fontWeight: 300,
@@ -31,18 +31,18 @@ const labelBase = {
   fontSize: "0.52rem",
   letterSpacing: "0.28em",
   textTransform: "uppercase",
-  color: "rgba(255,255,255,0.42)",
+  color: "rgba(30,58,138,0.55)",
   marginBottom: "0.55rem",
 };
 
-// ── Corner markers — consistent with every other section ──────────────────────
+// ── Corner markers ────────────────────────────────────────────────────────────
 const CornerMarkers = memo(function CornerMarkers() {
   return (
     <>
-      <span className="absolute top-6 left-6 w-5 h-5 border-t border-l border-white/20 pointer-events-none z-10" />
-      <span className="absolute top-6 right-6 w-5 h-5 border-t border-r border-white/20 pointer-events-none z-10" />
-      <span className="absolute bottom-6 left-6 w-5 h-5 border-b border-l border-white/20 pointer-events-none z-10" />
-      <span className="absolute bottom-6 right-6 w-5 h-5 border-b border-r border-white/20 pointer-events-none z-10" />
+      <span className="absolute top-6 left-6 w-5 h-5 border-t border-l border-blue-900/20 pointer-events-none z-10" />
+      <span className="absolute top-6 right-6 w-5 h-5 border-t border-r border-blue-900/20 pointer-events-none z-10" />
+      <span className="absolute bottom-6 left-6 w-5 h-5 border-b border-l border-blue-900/20 pointer-events-none z-10" />
+      <span className="absolute bottom-6 right-6 w-5 h-5 border-b border-r border-blue-900/20 pointer-events-none z-10" />
       <p
         className="absolute bottom-8 left-8 pointer-events-none z-10"
         style={{
@@ -50,7 +50,7 @@ const CornerMarkers = memo(function CornerMarkers() {
           fontSize: "0.48rem",
           letterSpacing: "0.34em",
           textTransform: "uppercase",
-          color: "rgba(255,255,255,0.28)",
+          color: "rgba(30,58,138,0.28)",
         }}
       >
         Marhamat
@@ -59,7 +59,7 @@ const CornerMarkers = memo(function CornerMarkers() {
   );
 });
 
-// ── Field wrapper — handles focus border glow via local state ─────────────────
+// ── Field wrapper ─────────────────────────────────────────────────────────────
 function Field({ label, children }) {
   return (
     <div style={{ display: "flex", flexDirection: "column" }}>
@@ -69,7 +69,7 @@ function Field({ label, children }) {
   );
 }
 
-// ── Focusable input — swaps border colour on focus ────────────────────────────
+// ── Focusable input — swaps border/bg on focus ────────────────────────────────
 function FocusInput({ as: Tag = "input", style: extraStyle = {}, ...props }) {
   const [focused, setFocused] = useState(false);
   return (
@@ -81,11 +81,11 @@ function FocusInput({ as: Tag = "input", style: extraStyle = {}, ...props }) {
         ...inputBase,
         ...extraStyle,
         borderColor: focused
-          ? "rgba(255,255,255,0.45)"
-          : "rgba(255,255,255,0.13)",
+          ? "rgba(30,58,138,0.5)"
+          : "rgba(30,58,138,0.18)",
         background: focused
-          ? "rgba(255,255,255,0.08)"
-          : "rgba(255,255,255,0.05)",
+          ? "rgba(30,58,138,0.07)"
+          : "rgba(30,58,138,0.04)",
       }}
     />
   );
@@ -130,7 +130,7 @@ function DonationForm() {
     <section
       id="donate"
       ref={sectionRef}
-      className="relative bg-black"
+      className="relative bg-white"
       style={{ minHeight: "100vh" }}
     >
       {/* ── Background image + overlays ───────────────────────────────────── */}
@@ -143,10 +143,10 @@ function DonationForm() {
           className="object-cover object-center"
           priority={false}
         />
-        {/* Dark cinematic overlay */}
+        {/* Cinematic overlay — slightly lighter than original for white theme feel */}
         <div
           className="absolute inset-0"
-          style={{ background: "rgba(0,0,0,0.74)" }}
+          style={{ background: "rgba(0,0,0,0.68)" }}
         />
         {/* Top gradient — blends with VideoSection above */}
         <div
@@ -185,7 +185,7 @@ function DonationForm() {
               fontSize: "0.58rem",
               letterSpacing: "0.32em",
               textTransform: "uppercase",
-              color: "rgba(255,255,255,0.42)",
+              color: "rgba(255,255,255,0.55)",
               marginBottom: "1rem",
               display: "block",
             }}
@@ -210,7 +210,7 @@ function DonationForm() {
               fontFamily: "var(--font-cormorant)",
               fontSize: "clamp(1rem, 1.6vw, 1.2rem)",
               fontWeight: 300,
-              color: "rgba(255,255,255,0.6)",
+              color: "rgba(255,255,255,0.65)",
               maxWidth: "460px",
               margin: "0 auto",
               lineHeight: 1.75,
@@ -221,7 +221,7 @@ function DonationForm() {
           </p>
         </motion.div>
 
-        {/* ── Form card ─────────────────────────────────────────────────── */}
+        {/* ── Form card — white with dark blue palette ──────────────────── */}
         <AnimatePresence mode="wait">
           {submitted ? (
             /* ── Success state ── */
@@ -234,9 +234,9 @@ function DonationForm() {
               style={{
                 width: "100%",
                 maxWidth: "520px",
-                background: "rgba(0,0,0,0.6)",
+                background: "rgba(255,255,255,0.97)",
                 backdropFilter: "blur(16px)",
-                border: "1px solid rgba(255,255,255,0.1)",
+                border: "1px solid rgba(30,58,138,0.12)",
                 padding: "clamp(2.5rem, 6vw, 3.5rem)",
                 textAlign: "center",
               }}
@@ -246,7 +246,7 @@ function DonationForm() {
                 style={{
                   width: "2.5rem",
                   height: "1px",
-                  background: "rgba(255,255,255,0.35)",
+                  background: "rgba(30,58,138,0.3)",
                   margin: "0 auto 2rem",
                 }}
               />
@@ -255,7 +255,7 @@ function DonationForm() {
                   fontFamily: "var(--font-satoshi)",
                   fontSize: "clamp(1.5rem, 3vw, 2.2rem)",
                   fontWeight: 300,
-                  color: "white",
+                  color: "#1e3a8a",
                   letterSpacing: "0.04em",
                   marginBottom: "1rem",
                 }}
@@ -267,15 +267,15 @@ function DonationForm() {
                   fontFamily: "var(--font-cormorant)",
                   fontSize: "clamp(1rem, 1.5vw, 1.15rem)",
                   fontWeight: 300,
-                  color: "rgba(255,255,255,0.6)",
+                  color: "rgba(30,58,138,0.65)",
                   lineHeight: 1.75,
                   marginBottom: "2rem",
                 }}
               >
                 Your generous donation of{" "}
-                <span style={{ color: "white" }}>₨{Number(amount).toLocaleString("en-PK")}</span> is
+                <span style={{ color: "#1e3a8a", fontWeight: 500 }}>₨{Number(amount).toLocaleString("en-PK")}</span> is
                 being processed. You will receive a confirmation at{" "}
-                <span style={{ color: "white" }}>{email}</span>.
+                <span style={{ color: "#1e3a8a", fontWeight: 500 }}>{email}</span>.
               </p>
               <button
                 onClick={() => {
@@ -287,20 +287,20 @@ function DonationForm() {
                   fontSize: "0.6rem",
                   letterSpacing: "0.24em",
                   textTransform: "uppercase",
-                  color: "rgba(255,255,255,0.55)",
+                  color: "rgba(30,58,138,0.65)",
                   background: "none",
-                  border: "1px solid rgba(255,255,255,0.18)",
+                  border: "1px solid rgba(30,58,138,0.2)",
                   padding: "0.7rem 1.8rem",
                   cursor: "pointer",
                   transition: "border-color 0.25s ease, color 0.25s ease",
                 }}
                 onMouseEnter={(e) => {
-                  e.currentTarget.style.borderColor = "rgba(255,255,255,0.5)";
-                  e.currentTarget.style.color = "white";
+                  e.currentTarget.style.borderColor = "rgba(30,58,138,0.6)";
+                  e.currentTarget.style.color = "#1e3a8a";
                 }}
                 onMouseLeave={(e) => {
-                  e.currentTarget.style.borderColor = "rgba(255,255,255,0.18)";
-                  e.currentTarget.style.color = "rgba(255,255,255,0.55)";
+                  e.currentTarget.style.borderColor = "rgba(30,58,138,0.2)";
+                  e.currentTarget.style.color = "rgba(30,58,138,0.65)";
                 }}
               >
                 Donate Again
@@ -319,9 +319,9 @@ function DonationForm() {
               style={{
                 width: "100%",
                 maxWidth: "520px",
-                background: "rgba(0,0,0,0.58)",
+                background: "rgba(255,255,255,0.97)",
                 backdropFilter: "blur(16px)",
-                border: "1px solid rgba(255,255,255,0.1)",
+                border: "1px solid rgba(30,58,138,0.12)",
                 padding: "clamp(2rem, 5vw, 3rem)",
                 display: "flex",
                 flexDirection: "column",
@@ -333,7 +333,7 @@ function DonationForm() {
                 style={{
                   width: "2rem",
                   height: "1px",
-                  background: "rgba(255,255,255,0.25)",
+                  background: "rgba(30,58,138,0.25)",
                 }}
               />
 
@@ -382,11 +382,11 @@ function DonationForm() {
                         fontSize: "0.62rem",
                         letterSpacing: "0.1em",
                         fontWeight: preset === val ? 500 : 300,
-                        color: preset === val ? "black" : "rgba(255,255,255,0.65)",
-                        background: preset === val ? "white" : "rgba(255,255,255,0.05)",
+                        color: preset === val ? "white" : "rgba(30,58,138,0.65)",
+                        background: preset === val ? "#1e3a8a" : "rgba(30,58,138,0.04)",
                         border: preset === val
-                          ? "1px solid white"
-                          : "1px solid rgba(255,255,255,0.13)",
+                          ? "1px solid #1e3a8a"
+                          : "1px solid rgba(30,58,138,0.18)",
                         padding: "0.5rem 0.25rem",
                         cursor: "pointer",
                         transition: "all 0.22s ease",
@@ -405,7 +405,7 @@ function DonationForm() {
                       left: "1rem",
                       top: "50%",
                       transform: "translateY(-50%)",
-                      color: "rgba(255,255,255,0.35)",
+                      color: "rgba(30,58,138,0.4)",
                       fontFamily: "var(--font-inter)",
                       fontSize: "0.85rem",
                       pointerEvents: "none",
@@ -449,7 +449,7 @@ function DonationForm() {
                       fontFamily: "var(--font-inter)",
                       fontSize: "0.65rem",
                       letterSpacing: "0.05em",
-                      color: "rgba(255,120,120,0.9)",
+                      color: "rgba(220,38,38,0.9)",
                       marginTop: "-0.5rem",
                     }}
                   >
@@ -458,14 +458,14 @@ function DonationForm() {
                 )}
               </AnimatePresence>
 
-              {/* Submit */}
+              {/* Submit — dark blue button */}
               <button
                 type="submit"
                 style={{
                   width: "100%",
                   padding: "1rem",
-                  background: "white",
-                  color: "black",
+                  background: "#1e3a8a",
+                  color: "white",
                   fontFamily: "var(--font-inter)",
                   fontSize: "0.65rem",
                   letterSpacing: "0.26em",
@@ -473,11 +473,11 @@ function DonationForm() {
                   fontWeight: 500,
                   border: "none",
                   cursor: "pointer",
-                  transition: "opacity 0.25s ease",
+                  transition: "background 0.25s ease",
                   marginTop: "0.25rem",
                 }}
-                onMouseEnter={(e) => (e.currentTarget.style.opacity = "0.88")}
-                onMouseLeave={(e) => (e.currentTarget.style.opacity = "1")}
+                onMouseEnter={(e) => (e.currentTarget.style.background = "#1d4ed8")}
+                onMouseLeave={(e) => (e.currentTarget.style.background = "#1e3a8a")}
               >
                 Donate Now
               </button>
@@ -489,7 +489,7 @@ function DonationForm() {
                   fontSize: "0.48rem",
                   letterSpacing: "0.22em",
                   textTransform: "uppercase",
-                  color: "rgba(255,255,255,0.2)",
+                  color: "rgba(30,58,138,0.35)",
                   textAlign: "center",
                   marginTop: "-0.5rem",
                 }}
