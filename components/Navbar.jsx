@@ -59,9 +59,9 @@ const AntlerLogo = memo(function AntlerLogo() {
 
 const NAV_LINKS = [
   { label: "Home", href: "/", active: true },
-  { label: "Explore", href: "#explore" },
-  { label: "Amenities", href: "#amenities" },
-  { label: "Gallery", href: "#gallery" },
+  { label: "Donate", href: "#donate" },
+  { label: "About Us", href: "#about" },
+  { label: "Contact", href: "#contact" },
 ];
 
 function Navbar() {
