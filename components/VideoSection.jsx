@@ -47,7 +47,7 @@ const CurtainCorners = memo(function CurtainCorners() {
           color: "rgba(255,255,255,0.32)",
         }}
       >
-        Méchante Cabane
+       Merhamat
       </p>
     </>
   );
@@ -97,7 +97,7 @@ function VideoSection() {
         >
           <Image
             src={REVEAL_IMAGE}
-            alt="Méchante Cabane — The Retreat"
+            alt="Merhamat"
             fill
             sizes="100vw"
             className="object-cover"

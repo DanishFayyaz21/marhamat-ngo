@@ -9,32 +9,32 @@ const SCROLL_STEPS = [
   {
     image:
       "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?q=80&w=1600&auto=format&fit=crop",
-    word: "Disappear",
+    word: "Help",
   },
   {
     image:
       "https://images.unsplash.com/photo-1448375240586-882707db888b?q=80&w=1600&auto=format&fit=crop",
-    word: "Breathe",
+    word: "Educate",
   },
   {
     image:
       "https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?q=80&w=1600&auto=format&fit=crop",
-    word: "Rest",
+    word: "Feed",
   },
   {
     image:
       "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=1600&auto=format&fit=crop",
-    word: "Wander",
+    word: "Protect",
   },
   {
     image:
       "https://images.unsplash.com/photo-1469474968028-56623f02e42e?q=80&w=1600&auto=format&fit=crop",
-    word: "Reconnect",
+    word: "Love",
   },
   {
     image:
       "https://images.unsplash.com/photo-1419242902214-272b3f66ee7a?q=80&w=1600&auto=format&fit=crop",
-    word: "Dream",
+    word: "Care",
   },
 ];
 
@@ -79,7 +79,7 @@ const CornerMarkers = memo(function CornerMarkers() {
           color: "rgba(255,255,255,0.38)",
         }}
       >
-        Explore The Cabin
+        Merhamat
       </p>
     </>
   );
@@ -133,7 +133,7 @@ const TextPanel = memo(function TextPanel({ word, fromLeft, isInView, delay = 0 
       initial={{ opacity: 0, x: fromLeft ? -50 : 50 }}
       transition={{ duration: 0.85, delay, ease: [0.22, 1, 0.36, 1] }}
     >
-      <span style={prefixStyle}>A place to</span>
+      <span style={prefixStyle}>A hope for</span>
       <h2 style={wordStyle}>{word}</h2>
     </motion.div>
   );
@@ -169,7 +169,7 @@ const StepItem = memo(function StepItem({ image, word, index }) {
 });
 
 // ── Step 7: Sticky image (left) + FOR → EVERY → GENERATION on right ───────────
-const WORDS = ["For", "Every", "Generation"];
+const WORDS = ["Help", "Them", "Rise"];
 
 const StickyStep = memo(function StickyStep() {
   const containerRef = useRef(null);
@@ -228,7 +228,7 @@ const StickyStep = memo(function StickyStep() {
             paddingRight: "clamp(2rem, 5vw, 6rem)",
           }}
         >
-          <span style={prefixStyle}>A place to</span>
+          <span style={prefixStyle}>A hand to</span>
 
           <div style={{ position: "relative", overflow: "visible", minHeight: "clamp(6rem, 12vh, 14rem)", width: "100%" }}>
             <AnimatePresence mode="wait">

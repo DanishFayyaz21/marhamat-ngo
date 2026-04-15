@@ -3,71 +3,41 @@
 import { memo } from "react";
 import { motion } from "framer-motion";
 
-// ── AntlerIcon — matches the one in Hero ─────────────────────────────────────
-const AntlerIcon = memo(function AntlerIcon({ size = 28 }) {
+// ── Charity Heart Icon — matches the charity theme ────────────────────────────
+const CharityHeartIcon = memo(function CharityHeartIcon({ size = 28 }) {
   return (
     <svg
       width={size}
-      height={size * 0.8}
-      viewBox="0 0 52 42"
+      height={size * 0.9}
+      viewBox="0 0 24 24"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
       <path
-        d="M26 38 L26 26 L18 14 L14 4"
+        d="M12 21.35L10.55 20.03C5.4 15.36 2 12.27 2 8.5C2 5.41 4.42 3 7.5 3C9.24 3 10.91 3.81 12 5.08C13.09 3.81 14.76 3 16.5 3C19.58 3 22 5.41 22 8.5C22 12.27 18.6 15.36 13.45 20.03L12 21.35Z"
         stroke="white"
-        strokeWidth="2.5"
+        strokeWidth="1.8"
         strokeLinecap="round"
         strokeLinejoin="round"
-      />
-      <path
-        d="M18 14 L8 20"
-        stroke="white"
-        strokeWidth="2.2"
-        strokeLinecap="round"
-      />
-      <path
-        d="M22 20 L14 24"
-        stroke="white"
-        strokeWidth="2.2"
-        strokeLinecap="round"
-      />
-      <path
-        d="M26 26 L34 14 L38 4"
-        stroke="white"
-        strokeWidth="2.5"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-      <path
-        d="M34 14 L44 20"
-        stroke="white"
-        strokeWidth="2.2"
-        strokeLinecap="round"
-      />
-      <path
-        d="M30 20 L38 24"
-        stroke="white"
-        strokeWidth="2.2"
-        strokeLinecap="round"
+        fill="none"
       />
     </svg>
   );
 });
 
-// ── Footer columns data ───────────────────────────────────────────────────────
+// ── Footer columns data — UPDATED for Charity ─────────────────────────────────
 const FOOTER_COLUMNS = [
   {
-    heading: "Explore",
-    items: ["The Cabin", "The Forest", "The Lake", "All Seasons"],
+    heading: "Our Mission",
+    items: ["Help Children", "Feed The Hungry", "Educate Orphans", "Support Families"],
   },
   {
-    heading: "Stay",
-    items: ["Book a Retreat", "Pricing & Rates", "Availability", "Group Stays"],
+    heading: "Get Involved",
+    items: ["Donate Now", "Become a Volunteer", "Sponsor a Child", "Corporate Partnership"],
   },
   {
     heading: "Connect",
-    items: ["Contact Us", "Mailing List", "Instagram", "Press Enquiries"],
+    items: ["Contact Us", "Newsletter", "Instagram", "Success Stories"],
   },
 ];
 
@@ -97,15 +67,40 @@ function Footer() {
           paddingRight: "clamp(2rem, 5vw, 5rem)",
         }}
       >
-        {/* ── LEFT: Logo (40%) ─────────────────────────────────────────── */}
+        {/* ── LEFT: Logo & Tagline (40%) ─────────────────────────────────── */}
         <div
           className="w-full md:w-[40%] flex flex-col items-start justify-start shrink-0"
           style={{ marginBottom: "clamp(2.5rem, 5vw, 0rem)" }}
         >
           {/* Logo mark + wordmark */}
-          <div className="flex items-center gap-3">
-            <AntlerIcon size={52} />
+          <div className="flex items-center gap-3 mb-4">
+            <CharityHeartIcon size={52} />
+            <div>
+              <span
+                style={{
+                  fontFamily: "var(--font-satoshi)",
+                  fontSize: "clamp(1.5rem, 4vw, 2rem)",
+                  fontWeight: 700,
+                  color: "white",
+                  letterSpacing: "-0.02em",
+                }}
+              >
+                Marhamat
+              </span>
+            </div>
           </div>
+          {/* Tagline */}
+          <p
+            style={{
+              fontFamily: "var(--font-inter)",
+              fontSize: "0.7rem",
+              color: "rgba(255,255,255,0.45)",
+              lineHeight: 1.5,
+              maxWidth: "80%",
+            }}
+          >
+            A hand to help them rise — supporting orphans, children, and needy families worldwide.
+          </p>
         </div>
 
         {/* ── RIGHT: 3 columns (60%) ───────────────────────────────────── */}
@@ -185,7 +180,7 @@ function Footer() {
             color: "rgba(255,255,255,0.22)",
           }}
         >
-          © {new Date().getFullYear()} Méchante Cabane — All rights reserved
+          © {new Date().getFullYear()} Marhamat — All rights reserved
         </p>
         <p
           style={{
@@ -200,7 +195,7 @@ function Footer() {
         </p>
       </div>
 
-      {/* ── Full-width image banner with TEXT MASK ──────────────────────────── */}
+      {/* ── Full-width image banner with TEXT MASK — UPDATED for Marhamat ──── */}
       <div
         style={{
           position: "relative",
@@ -224,15 +219,15 @@ function Footer() {
           style={{
             position: "absolute",
             inset: 0,
-            backgroundImage: `url("https://images.unsplash.com/photo-1498429089284-41f8cf3dff39?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fGhvcml6b250YWwlMjB3YWxscGFwZXJ8ZW58MHx8MHx8fDA%3D")`,
+            backgroundImage: `url("")`,
             backgroundSize: "cover",
             backgroundPosition: "center",
             // ── Mask: image shows only through text ──
-            maskImage: `url('data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 1200 200\'%3E%3Ctext x=\'50%25\' y=\'55%25\' dominant-baseline=\'middle\' text-anchor=\'middle\' font-family=\'Arial, sans-serif\' font-weight=\'bold\' font-size=\'clamp(60px, 10vw, 140px)\' fill=\'white\' letter-spacing=\'8\'%3EMÉCHANTE CABANE%3C/text%3E%3C/svg%3E')`,
+            maskImage: `url('data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 1200 200\'%3E%3Ctext x=\'50%25\' y=\'55%25\' dominant-baseline=\'middle\' text-anchor=\'middle\' font-family=\'Arial, sans-serif\' font-weight=\'bold\' font-size=\'clamp(60px, 10vw, 140px)\' fill=\'white\' letter-spacing=\'4\'%3EMARHAMAT%3C/text%3E%3C/svg%3E')`,
             maskSize: "contain",
             maskRepeat: "no-repeat",
             maskPosition: "center",
-            WebkitMaskImage: `url('data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 1200 200\'%3E%3Ctext x=\'50%25\' y=\'55%25\' dominant-baseline=\'middle\' text-anchor=\'middle\' font-family=\'Arial, sans-serif\' font-weight=\'bold\' font-size=\'clamp(60px, 10vw, 140px)\' fill=\'white\' letter-spacing=\'8\'%3EMÉCHANTE CABANE%3C/text%3E%3C/svg%3E')`,
+            WebkitMaskImage: `url('data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 1200 200\'%3E%3Ctext x=\'50%25\' y=\'55%25\' dominant-baseline=\'middle\' text-anchor=\'middle\' font-family=\'Arial, sans-serif\' font-weight=\'bold\' font-size=\'clamp(60px, 10vw, 140px)\' fill=\'white\' letter-spacing=\'4\'%3EMARHAMAT%3C/text%3E%3C/svg%3E')`,
             WebkitMaskSize: "contain",
             WebkitMaskRepeat: "no-repeat",
             WebkitMaskPosition: "center",
@@ -252,7 +247,7 @@ function Footer() {
           <h2
             style={{
               fontFamily: "var(--font-satoshi), Arial, sans-serif",
-              fontSize: "clamp(2.5rem, 8vw, 7rem)",
+              fontSize: "clamp(2rem, 8vw, 6rem)",
               fontWeight: 700,
               letterSpacing: "0.12em",
               color: "transparent",
@@ -264,7 +259,7 @@ function Footer() {
               padding: "0 1rem",
             }}
           >
-            MÉCHANTE CABANE
+            MARHAMAT
           </h2>
         </div>
       </div>
