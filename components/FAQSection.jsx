@@ -12,41 +12,40 @@ import {
 
 // ── Reveal image shown behind the FAQ curtain ─────────────────────────────────
 const REVEAL_IMAGE =
-  "https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?q=80&w=2400&auto=format&fit=crop";
+  "https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?q=80&w=2400&auto=format&fit=crop";
 
 // ── FAQ Data ───────────────────────────────────────────────────────────────────
 const FAQ_ITEMS = [
   {
-    question: "Where is Méchante Cabane located?",
+    question: "What is Marhamat and what does it do?",
     answer:
-      "Nestled deep within an ancient boreal forest, Méchante Cabane sits at the edge of a glacial lake, hours from the nearest town. Exact coordinates are shared only upon confirmed booking — the journey is part of the ritual.",
+      "Marhamat is a Pakistani charity platform dedicated to supporting orphans, vulnerable children, and struggling families. We provide essential aid including hot meals, clean drinking water, educational supplies, medical care, and safe shelter to those most in need across Pakistan.",
   },
   {
-    question: "What is included in the retreat experience?",
+    question: "What causes does Marhamat support?",
     answer:
-      "Every stay includes full cabin access, a daily guided forest walk at dawn, wood-fired sauna sessions each evening, locally foraged breakfast provisions, and access to the private lakeside dock with canoe.",
+      "Our work focuses on five core areas: food (daily hot meals), clean water access, education supplies for children, basic medical care, and emergency shelter for displaced families. Every rupee donated goes directly toward these essential needs.",
   },
   {
-    question: "How many guests can the cabin accommodate?",
+    question: "How can I make a donation?",
     answer:
-      "The cabin is designed as an intimate retreat for up to four guests. We also offer exclusive sole-occupancy bookings for those who wish to experience the wilderness in complete solitude.",
+      "You can donate directly through our secure online platform using any major payment method. All donations are accepted in PKR (Pakistani Rupees). You can choose a one-time donation or set up a recurring monthly contribution to provide sustained support.",
   },
   {
-    question: "What is the best season to visit?",
+    question: "How much does it cost to help a child or family?",
     answer:
-      "Each season reveals a different face of the forest. Summer offers warm evenings and midnight light; autumn transforms the canopy into fire; winter buries everything in silence and snow; spring brings the thaw and the first birdsong. There is no wrong time — only different moods.",
+      "Even a small contribution makes a real difference. As little as ₨500 can provide a week of hot meals for a child. ₨2,000 can cover a month of educational supplies. ₨5,000 can fund medical care for an entire family in need.",
   },
   {
-    question: "Is the cabin suitable for disconnecting from technology?",
+    question: "Are my donations used transparently?",
     answer:
-      "Intentionally so. The cabin has no WiFi and limited cell signal. Guests are encouraged to leave devices stored away. We provide a curated library, field notebooks, and star charts for the nights.",
+      "Absolutely. Marhamat operates with full financial transparency. We publish regular impact reports and ensure the majority of every donation goes directly to beneficiaries — not administration. You will receive a clear breakdown of exactly how your contribution was used.",
   },
   {
-    question: "How do I make a booking or enquiry?",
+    question: "How can I get involved beyond donating?",
     answer:
-      "Bookings are made directly through our private reservation form, which opens seasonally. Priority access is given to returning guests. Sign up to our mailing list to be notified of upcoming availability windows.",
+      "There are many ways to support Marhamat — volunteer your time, share our mission on social media, organise a local fundraiser, or sign up to our newsletter to stay updated. Every act of kindness, no matter how small, creates ripples of lasting change.",
   },
- 
 ];
 
 // ── Shared text styles — identical to ScrollStory & VideoSection ──────────────
@@ -88,7 +87,7 @@ const SectionCorners = memo(function SectionCorners() {
           color: "rgba(255,255,255,0.32)",
         }}
       >
-        Méchante Cabane
+        Marhamat
       </p>
     </>
   );
@@ -219,7 +218,7 @@ function FAQSection() {
         <motion.div className="absolute inset-0" style={{ scale: imageScale }}>
           <Image
             src={REVEAL_IMAGE}
-            alt="Contact — Méchante Cabane"
+            alt="Community volunteers helping families — Marhamat charity"
             fill
             sizes="100vw"
             className="object-cover"
@@ -270,9 +269,9 @@ function FAQSection() {
                 marginBottom: "2.8rem",
               }}
             >
-              Get in touch with our team
+              Help us reach every child
               <br />
-              or book your stay directly
+              in need across Pakistan
             </h2>
 
             {/* CTA buttons */}
@@ -298,7 +297,7 @@ function FAQSection() {
                 onMouseEnter={(e) => (e.currentTarget.style.opacity = "0.85")}
                 onMouseLeave={(e) => (e.currentTarget.style.opacity = "1")}
               >
-                Book Your Stay
+                Donate Now
               </button>
 
               {/* Secondary — outlined */}
@@ -326,7 +325,7 @@ function FAQSection() {
                   e.currentTarget.style.borderColor = "rgba(255,255,255,0.45)";
                 }}
               >
-                Contact Us
+                Volunteer With Us
               </button>
             </div>
           </motion.div>
@@ -418,7 +417,7 @@ function FAQSection() {
                     style={{ pointerEvents: "none" }}
                   >
                     <source
-                      src="https://www.pexels.com/download/video/13724665/"
+                      src="https://www.pexels.com/download/video/3195394/"
                       type="video/mp4"
                     />
                   </video>
@@ -493,7 +492,7 @@ function FAQSection() {
                   animate={{ opacity: isInView ? 1 : 0 }}
                   transition={{ duration: 1, delay: 0.7 }}
                 >
-                  Further enquiries welcome — contact@mechantecabane.com
+                  Further enquiries welcome — contact@marhamat.org
                 </motion.p>
               </div>
             </div>
