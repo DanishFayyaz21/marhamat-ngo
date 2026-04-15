@@ -12,7 +12,7 @@ import {
 
 // ── Reveal image shown behind the FAQ curtain ─────────────────────────────────
 const REVEAL_IMAGE =
-  "https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?q=80&w=2400&auto=format&fit=crop";
+  "https://images.pexels.com/photos/7459470/pexels-photo-7459470.jpeg";
 
 // ── FAQ Data ───────────────────────────────────────────────────────────────────
 const FAQ_ITEMS = [
@@ -417,7 +417,7 @@ function FAQSection() {
                     style={{ pointerEvents: "none" }}
                   >
                     <source
-                      src="https://www.pexels.com/download/video/3195394/"
+                      src="https://www.pexels.com/download/video/17746802/"
                       type="video/mp4"
                     />
                   </video>
