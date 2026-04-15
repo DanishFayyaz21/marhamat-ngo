@@ -61,10 +61,10 @@ const OverlayContent = memo(function OverlayContent({ opacity, y }) {
           textAlign: "left",
         }}
       >
-        Méchante Cabane is a luxury short-term retreat set within an expansive
-        private natural domain in Canada. Designed with a strong architectural
-        identity, the property blends contemporary living with the raw beauty of
-        its surroundings.
+        Marhamat is a compassionate charity platform dedicated to supporting
+        orphans, vulnerable children, and struggling families across Pakistan —
+        providing food, clean water, education, and safe shelter to those who
+        need it most.
       </p>
     </motion.div>
   );
@@ -97,11 +97,11 @@ const BottomCenterText = memo(function BottomCenterText({ opacity, y }) {
           lineHeight: 2.4,
         }}
       >
-        Nestled between ancient forests and open skies
+        Providing hot meals and clean water to families in need
         <br />
-        A sanctuary where silence becomes a luxury
+        Supporting orphans with education and medical care
         <br />
-        Where every season tells a different story
+        Building futures, one child at a time
       </p>
     </motion.div>
   );
@@ -125,7 +125,7 @@ const ExperienceText = memo(function ExperienceText({ opacity, y }) {
             marginBottom: "1.1rem",
           }}
         >
-          Discover
+          Give Hope
         </p>
         <h2
           style={{
@@ -139,7 +139,7 @@ const ExperienceText = memo(function ExperienceText({ opacity, y }) {
             lineHeight: 1.1,
           }}
         >
-          Experience Méchante Cabane
+          Support Marhamat Today
         </h2>
         <div
           style={{
@@ -347,8 +347,8 @@ function Hero() {
           style={{ scale: imageScale }}
         >
           <Image
-            src="https://images.unsplash.com/photo-1449824913935-59a10b8d2000?q=80&w=2560&auto=format&fit=crop"
-            alt="Aerial drone view zooming out from a cabin retreat to reveal the full surrounding landscape"
+            src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?q=80&w=2560&auto=format&fit=crop"
+            alt="Children smiling — Marhamat charity supporting orphans and vulnerable families"
             fill
             sizes="100vw"
             className="object-cover object-center grayscale"
@@ -368,7 +368,7 @@ function Hero() {
           }}
         >
           <Image
-            src="https://images.unsplash.com/photo-1449824913935-59a10b8d2000?q=80&w=2560&auto=format&fit=crop"
+            src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?q=80&w=2560&auto=format&fit=crop"
             alt=""
             aria-hidden="true"
             fill
@@ -418,7 +418,7 @@ function Hero() {
               letterSpacing: "0.12em",
             }}
           >
-            Méchante Cabane
+            Marhamat
           </h1>
 
           <p
@@ -430,12 +430,12 @@ function Hero() {
               letterSpacing: "0.03em",
             }}
           >
-            A peaceful retreat surrounded by changing landscapes &mdash; from
-            warm autumn tones to serene winter silences.
+            Every child deserves a warm meal, clean water, and a future filled
+            with hope &mdash; your donation makes that possible.
           </p>
 
           <Link
-            href="#explore"
+            href="#donate"
             className="group flex items-center gap-3 text-white/90 hover:text-white transition-colors duration-300"
             style={{
               fontFamily: "var(--font-inter)",
@@ -445,7 +445,7 @@ function Hero() {
             }}
           >
             <span className="w-8 h-px bg-white/60 group-hover:w-12 group-hover:bg-white transition-all duration-300" />
-            Explore the Cabin
+            Donate Now
             <span className="w-8 h-px bg-white/60 group-hover:w-12 group-hover:bg-white transition-all duration-300" />
           </Link>
         </motion.div>
@@ -456,7 +456,7 @@ function Hero() {
           style={{ opacity: indicatorOpacity }}
         >
           <Link
-            href="#explore"
+            href="#donate"
             className="relative flex flex-col items-center gap-2 group"
             aria-label="Scroll down"
           >

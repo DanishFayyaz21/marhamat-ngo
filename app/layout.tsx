@@ -15,9 +15,9 @@ const inter = Inter({
 });
 
 export const metadata = {
-  title: "Méchante Cabane",
+  title: "Marhamat – Charity for Orphans & Families",
   description:
-    "A peaceful retreat surrounded by changing landscapes — from warm autumn tones to serene winter silences.",
+    "Marhamat is a compassionate charity platform supporting orphans, vulnerable children, and struggling families across Pakistan with food, clean water, education, and medical care.",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
