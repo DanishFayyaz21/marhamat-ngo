@@ -38,8 +38,21 @@ const SCROLL_STEPS = [
   },
 ];
 
-const STICKY_IMAGE =
-  "https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?q=80&w=1600&auto=format&fit=crop";
+// ── Sticky Section Data (3 words with 3 different images) ─────────────────────
+const STICKY_STEPS = [
+  {
+    image: "https://images.pexels.com/photos/33986221/pexels-photo-33986221.jpeg",
+    word: "Help",
+  },
+  {
+    image: "https://images.pexels.com/photos/10172985/pexels-photo-10172985.jpeg",
+    word: "Them",
+  },
+  {
+    image: "https://images.pexels.com/photos/17950300/pexels-photo-17950300.jpeg",
+    word: "Rise",
+  },
+];
 
 // ── Shared text styles ─────────────────────────────────────────────────────────
 const wordStyle = {
@@ -79,7 +92,7 @@ const CornerMarkers = memo(function CornerMarkers() {
           color: "rgba(255,255,255,0.38)",
         }}
       >
-        Merhamat
+        Marhamat
       </p>
     </>
   );
@@ -120,7 +133,6 @@ const TextPanel = memo(function TextPanel({ word, fromLeft, isInView, delay = 0 
     <motion.div
       className="w-full md:w-1/2 flex flex-col items-center md:items-start"
       style={{
-        // "slightly above center" — push content down by ~22vh so it sits in the upper-middle
         paddingTop: "clamp(18vh, 22vh, 26vh)",
         paddingLeft: !fromLeft
           ? "clamp(2rem, 5vw, 6rem)"
@@ -144,8 +156,6 @@ const StepItem = memo(function StepItem({ image, word, index }) {
   const ref = useRef(null);
   const isInView = useInView(ref, { amount: 0.25 });
 
-  // Even index (0,2,4) → image LEFT, text RIGHT
-  // Odd index  (1,3,5) → text LEFT, image RIGHT
   const imageOnLeft = index % 2 === 0;
 
   return (
@@ -169,8 +179,7 @@ const StepItem = memo(function StepItem({ image, word, index }) {
 });
 
 // ── Step 7: Sticky image (left) + FOR → EVERY → GENERATION on right ───────────
-const WORDS = ["Help", "Them", "Rise"];
-
+// NOW WITH CHANGING IMAGES FOR EACH WORD!
 const StickyStep = memo(function StickyStep() {
   const containerRef = useRef(null);
   const [activeIndex, setActiveIndex] = useState(0);
@@ -181,17 +190,20 @@ const StickyStep = memo(function StickyStep() {
   });
 
   useMotionValueEvent(scrollYProgress, "change", (v) => {
-    if (v < 0.33)      setActiveIndex(0); // FOR
-    else if (v < 0.67) setActiveIndex(1); // EVERY
-    else               setActiveIndex(2); // GENERATION
+    if (v < 0.33)      setActiveIndex(0); // Help
+    else if (v < 0.67) setActiveIndex(1); // Them
+    else               setActiveIndex(2); // Rise
   });
+
+  const currentStep = STICKY_STEPS[activeIndex];
 
   return (
     <div ref={containerRef} className="relative" style={{ height: "400vh" }}>
       <div className="sticky top-0 h-screen flex flex-col md:flex-row">
 
-        {/* Left: sticky image — enters once, stays fixed */}
+        {/* Left: sticky image — NOW CHANGES WITH SCROLL */}
         <motion.div
+          key={currentStep.image}
           className="w-full md:w-1/2 flex items-center shrink-0"
           style={{
             paddingTop: "clamp(2.5rem, 4vh, 4rem)",
@@ -200,26 +212,36 @@ const StickyStep = memo(function StickyStep() {
             paddingRight: "clamp(1rem, 2vw, 2rem)",
           }}
           initial={{ opacity: 0, x: -50 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ amount: 0.25, once: true }}
+          animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.85, ease: [0.22, 1, 0.36, 1] }}
         >
           <div
             className="relative w-full overflow-hidden rounded-xl"
             style={{ height: "clamp(50vh, 72vh, 78vh)" }}
           >
-            <Image
-              src={STICKY_IMAGE}
-              alt="A place for every generation"
-              fill
-              sizes="(max-width: 768px) 95vw, 50vw"
-              className="object-cover"
-            />
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={currentStep.image}
+                className="absolute inset-0"
+                initial={{ opacity: 0, scale: 1.05 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.95 }}
+                transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+              >
+                <Image
+                  src={currentStep.image}
+                  alt={currentStep.word}
+                  fill
+                  sizes="(max-width: 768px) 95vw, 50vw"
+                  className="object-cover"
+                />
+              </motion.div>
+            </AnimatePresence>
             <CornerMarkers />
           </div>
         </motion.div>
 
-        {/* Right: one word at a time */}
+        {/* Right: one word at a time (ALSO CHANGES WITH SCROLL) */}
         <div
           className="w-full md:w-1/2 flex flex-col items-center md:items-start relative"
           style={{
@@ -240,7 +262,7 @@ const StickyStep = memo(function StickyStep() {
                 exit={{ opacity: 0, y: -40 }}
                 transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
               >
-                {WORDS[activeIndex]}
+                {currentStep.word}
               </motion.h2>
             </AnimatePresence>
           </div>
