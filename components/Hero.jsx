@@ -6,53 +6,21 @@ import Link from "next/link";
 import { gsap } from "gsap";
 import { motion, useScroll, useTransform } from "framer-motion";
 
-// ─── AntlerIcon (unchanged) ──────────────────────────────────────────────────
-const AntlerIcon = memo(function AntlerIcon({ size = 28 }) {
+const ScrollDownIcon = memo(function ScrollDownIcon({ size = 24 }) {
   return (
     <svg
       width={size}
-      height={size * 0.8}
-      viewBox="0 0 52 42"
+      height={size}
+      viewBox="0 0 24 24"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
       <path
-        d="M26 38 L26 26 L18 14 L14 4"
+        d="M12 5V19M12 19L19 12M12 19L5 12"
         stroke="white"
-        strokeWidth="2.5"
+        strokeWidth="1.8"
         strokeLinecap="round"
         strokeLinejoin="round"
-      />
-      <path
-        d="M18 14 L8 20"
-        stroke="white"
-        strokeWidth="2.2"
-        strokeLinecap="round"
-      />
-      <path
-        d="M22 20 L14 24"
-        stroke="white"
-        strokeWidth="2.2"
-        strokeLinecap="round"
-      />
-      <path
-        d="M26 26 L34 14 L38 4"
-        stroke="white"
-        strokeWidth="2.5"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-      <path
-        d="M34 14 L44 20"
-        stroke="white"
-        strokeWidth="2.2"
-        strokeLinecap="round"
-      />
-      <path
-        d="M30 20 L38 24"
-        stroke="white"
-        strokeWidth="2.2"
-        strokeLinecap="round"
       />
     </svg>
   );
@@ -489,10 +457,8 @@ function Hero() {
             className="relative flex flex-col items-center gap-2 group"
             aria-label="Scroll down"
           >
-            <div className="relative pulse-ring">
-              <div className="w-16 h-16 rounded-full border border-white/50 flex items-center justify-center bg-black/20 backdrop-blur-sm group-hover:bg-white/10 transition-colors duration-300">
-                <AntlerIcon size={26} />
-              </div>
+            <div className="relative w-14 h-14 md:w-16 md:h-16 rounded-full border border-white/50 flex items-center justify-center bg-black/20 backdrop-blur-sm hover:bg-white/10 transition-all duration-300 hover:scale-110 cursor-pointer">
+              <ScrollDownIcon size={20} />
             </div>
             <span
               className="text-white/70 group-hover:text-white transition-colors duration-300"
