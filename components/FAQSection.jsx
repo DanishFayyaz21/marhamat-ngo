@@ -437,18 +437,7 @@ function FAQSection() {
                   transition={{ duration: 0.8, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
                   style={{ marginBottom: "clamp(1.5rem, 3vh, 2.5rem)" }}
                 >
-                  <p
-                    style={{
-                      fontFamily: "var(--font-inter)",
-                      fontSize: "0.65rem",
-                      letterSpacing: "0.32em",
-                      textTransform: "uppercase",
-                      color: "rgba(30,58,138,0.5)",
-                      marginBottom: "0.6rem",
-                    }}
-                  >
-                    Got Questions?
-                  </p>
+                 
                   <h2
                     style={{
                       fontFamily: "var(--font-satoshi)",

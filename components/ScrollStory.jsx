@@ -24,24 +24,19 @@ const SCROLL_STEPS = [
     word: "Feed",
     description: "Thousands of children go to bed hungry every single night. We provide hot, nutritious meals to orphans and needy families. Our food distribution runs across 15 cities in Pakistan. We also deliver ration bags to struggling households. No child should ever feel the pain of hunger. Your donation can fill empty stomachs today.",
   },
-  {
-    image:
-      "https://images.pexels.com/photos/7617884/pexels-photo-7617884.jpeg",
-    word: "Protect",
-    description: "Orphaned children are vulnerable to abuse and exploitation. We create safe homes where they can heal and grow. Our child protection programs rescue those in danger. We provide counseling and legal support to victims. Every child deserves to feel safe and loved. Help us build a protective shield around them.",
-  },
+  // {
+  //   image:
+  //     "https://images.pexels.com/photos/7617884/pexels-photo-7617884.jpeg",
+  //   word: "Protect",
+  //   description: "Orphaned children are vulnerable to abuse and exploitation. We create safe homes where they can heal and grow. Our child protection programs rescue those in danger. We provide counseling and legal support to victims. Every child deserves to feel safe and loved. Help us build a protective shield around them.",
+  // },
   {
     image:
       "https://images.pexels.com/photos/5329153/pexels-photo-5329153.jpeg",
     word: "Love",
     description: "Love is the most powerful gift we can give a child. Many orphans have never felt what it means to be cared for. Our volunteers become like family to these children. We celebrate their birthdays and achievements with joy. Love heals wounds that food and shelter cannot reach. Show them they matter with your compassion today.",
   },
-  {
-    image:
-      "https://images.pexels.com/photos/30248240/pexels-photo-30248240.jpeg",
-    word: "Care",
-    description: "We provide medical care to sick children who cannot afford treatment. Our healthcare camps reach families in rural areas. We also offer mental health support for traumatized orphans. Daily care includes hygiene kits, blankets, and clean water. Every child deserves to be treated with dignity. Your care can save a child's life today.",
-  },
+ 
 ];
 
 // ── Sticky Section Data (3 words with 3 different images and descriptions) ─────

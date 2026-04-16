@@ -624,62 +624,7 @@ function AboutPage() {
         </div>
       </section>
 
-      {/* ──────────────────────────────────────────────────────────────────────
-          CTA SECTION
-      ────────────────────────────────────────────────────────────────────── */}
-      <section className="relative py-20 bg-white border-t border-blue-900/10">
-        <div className="max-w-screen-2xl mx-auto px-6 md:px-10 lg:px-14 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 0.7 }}
-          >
-            <h2
-              style={{
-                fontFamily: "var(--font-satoshi)",
-                fontSize: "clamp(1.8rem, 4vw, 2.5rem)",
-                fontWeight: 300,
-                color: "#1e3a8a",
-                marginBottom: "1rem",
-              }}
-            >
-              Ready to make a difference?
-            </h2>
-            <p
-              style={{
-                fontFamily: "var(--font-inter)",
-                fontSize: "0.85rem",
-                color: "rgba(30,58,138,0.6)",
-                marginBottom: "2rem",
-                maxWidth: "500px",
-                marginLeft: "auto",
-                marginRight: "auto",
-              }}
-            >
-              Join thousands of donors who are helping orphans and families rise.
-            </p>
-            <button
-              style={{
-                padding: "0.9rem 2.5rem",
-                background: "#1e3a8a",
-                color: "white",
-                fontFamily: "var(--font-inter)",
-                fontSize: "0.65rem",
-                letterSpacing: "0.24em",
-                textTransform: "uppercase",
-                border: "none",
-                cursor: "pointer",
-                transition: "background 0.25s ease",
-              }}
-              onMouseEnter={(e) => (e.currentTarget.style.background = "#1d4ed8")}
-              onMouseLeave={(e) => (e.currentTarget.style.background = "#1e3a8a")}
-            >
-              Donate Now
-            </button>
-          </motion.div>
-        </div>
-      </section>
+     
     </main>
   );
 }

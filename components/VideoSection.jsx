@@ -148,7 +148,7 @@ function VideoSection() {
           >
             {/* Aerial mountain travel footage — Pexels free stock */}
             <source
-              src="https://www.pexels.com/download/video/4362883/"
+              src="https://www.pexels.com/download/video/34596479/"
               type="video/mp4"
             />
           </video>
