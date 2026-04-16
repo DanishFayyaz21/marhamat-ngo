@@ -3,71 +3,63 @@
 import { useState, useEffect, useCallback, memo } from "react";
 import Link from "next/link";
 
-// Logo adapts stroke color based on whether navbar is scrolled
-const AntlerLogo = memo(function AntlerLogo({ color = "white" }) {
+// ── Charity Heart Icon — adapts stroke color based on navbar state ────────────
+const CharityHeartIcon = memo(function CharityHeartIcon({ color = "white", size = 32 }) {
   return (
     <svg
-      width="52"
-      height="42"
-      viewBox="0 0 52 42"
+      width={size}
+      height={size * 0.9}
+      viewBox="0 0 24 24"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      aria-label="Marhamat logo"
+      aria-label="Marhamat charity logo"
     >
-      {/* Left antler */}
       <path
-        d="M26 38 L26 26 L18 14 L14 4"
+        d="M12 21.35L10.55 20.03C5.4 15.36 2 12.27 2 8.5C2 5.41 4.42 3 7.5 3C9.24 3 10.91 3.81 12 5.08C13.09 3.81 14.76 3 16.5 3C19.58 3 22 5.41 22 8.5C22 12.27 18.6 15.36 13.45 20.03L12 21.35Z"
         stroke={color}
-        strokeWidth="2.2"
+        strokeWidth="1.8"
         strokeLinecap="round"
         strokeLinejoin="round"
-      />
-      <path
-        d="M18 14 L8 20"
-        stroke={color}
-        strokeWidth="2"
-        strokeLinecap="round"
-      />
-      <path
-        d="M22 20 L14 24"
-        stroke={color}
-        strokeWidth="2"
-        strokeLinecap="round"
-      />
-      {/* Right antler */}
-      <path
-        d="M26 26 L34 14 L38 4"
-        stroke={color}
-        strokeWidth="2.2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-      <path
-        d="M34 14 L44 20"
-        stroke={color}
-        strokeWidth="2"
-        strokeLinecap="round"
-      />
-      <path
-        d="M30 20 L38 24"
-        stroke={color}
-        strokeWidth="2"
-        strokeLinecap="round"
+        fill="none"
       />
     </svg>
   );
 });
 
 const NAV_LINKS = [
-  { label: "Home", href: "/", active: true },
-  { label: "Donate", href: "#donate" },
-  { label: "About Us", href: "#about" },
-  { label: "Contact", href: "#contact" },
+  { label: "Home", href: "#home", id: "home" },
+  { label: "Donate", href: "#donate", id: "donate" },
+  { label: "About Us", href: "#about", id: "about" },
+  { label: "Contact", href: "#contact", id: "contact" },
 ];
 
 function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState("home");
+
+  useEffect(() => {
+    const sections = ["home", "donate", "about", "contact"];
+
+    const handleScroll = () => {
+      let current = "home";
+
+      sections.forEach((id) => {
+        const el = document.getElementById(id);
+        if (el) {
+          const top = el.offsetTop - 100;
+          if (window.scrollY >= top) {
+            current = id;
+          }
+        }
+      });
+
+      setActiveSection(current);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const handleScroll = useCallback(() => {
     setScrolled(window.scrollY > 40);
@@ -81,10 +73,10 @@ function Navbar() {
   const toggleMenu = useCallback(() => setMenuOpen((prev) => !prev), []);
 
   // Adaptive colors: transparent over dark hero → white bg when scrolled
-  const logoColor    = scrolled ? "#1e3a8a" : "white";
-  const linkColor    = scrolled ? "text-blue-900" : "text-white";
-  const activeDot    = scrolled ? "bg-blue-900" : "bg-white";
-  const barColor     = scrolled ? "bg-blue-900" : "bg-white";
+  const logoColor = scrolled ? "#1e3a8a" : "white";
+  const linkColor = scrolled ? "text-blue-900" : "text-white";
+  const activeDot = scrolled ? "bg-blue-900" : "bg-white";
+  const barColor = scrolled ? "bg-blue-900" : "bg-white";
 
   return (
     <header
@@ -95,24 +87,34 @@ function Navbar() {
       }`}
     >
       <nav className="max-w-screen-2xl mx-auto flex items-center justify-between px-6 md:px-10 lg:px-14 py-5">
-        {/* Logo */}
+        {/* Logo with Heart Icon + Brand Name */}
         <Link href="/" className="flex items-center gap-2 shrink-0">
-          <AntlerLogo color={logoColor} />
+          <CharityHeartIcon color={logoColor} size={34} />
+          <span
+            className={`font-bold text-xl tracking-tight hidden sm:inline-block ${
+              scrolled ? "text-blue-900" : "text-white"
+            }`}
+            style={{ fontFamily: "var(--font-satoshi)" }}
+          >
+            Marhamat
+          </span>
         </Link>
 
         {/* Desktop Nav Links */}
         <ul className="hidden md:flex items-center gap-8 lg:gap-12">
-          {NAV_LINKS.map(({ label, href, active }) => (
+          {NAV_LINKS.map(({ label, href, id }) => (
             <li key={label}>
               <Link
                 href={href}
                 className={`relative flex items-center gap-1.5 text-sm tracking-[0.15em] uppercase font-light transition-opacity duration-200 hover:opacity-100 ${linkColor} ${
-                  active ? "opacity-100" : "opacity-60"
+                  activeSection === id ? "opacity-100" : "opacity-60"
                 }`}
                 style={{ fontFamily: "var(--font-inter)" }}
               >
-                {active && (
-                  <span className={`w-1 h-1 rounded-full ${activeDot} inline-block`} />
+                {activeSection === id && (
+                  <span
+                    className={`w-1 h-1 rounded-full ${activeDot} inline-block`}
+                  />
                 )}
                 {label}
               </Link>
@@ -160,16 +162,16 @@ function Navbar() {
         } bg-white/98 backdrop-blur-md border-b border-gray-200`}
       >
         <ul className="flex flex-col px-6 py-6 gap-5">
-          {NAV_LINKS.map(({ label, href, active }) => (
+          {NAV_LINKS.map(({ label, href, id }) => (
             <li key={label}>
               <Link
                 href={href}
                 onClick={toggleMenu}
                 className={`flex items-center gap-2 text-sm tracking-[0.15em] uppercase text-blue-900 transition-opacity duration-200 ${
-                  active ? "opacity-100" : "opacity-60"
+                  activeSection === id ? "opacity-100" : "opacity-60"
                 }`}
               >
-                {active && (
+                {activeSection === id && (
                   <span className="w-1 h-1 rounded-full bg-blue-900 inline-block" />
                 )}
                 {label}
