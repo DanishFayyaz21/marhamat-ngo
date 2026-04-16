@@ -5,6 +5,7 @@ import VideoSection from "@/components/VideoSection";
 import DonationForm from "@/components/DonationForm";
 import FAQSection from "@/components/FAQSection";
 import Footer from "@/components/Footer";
+import AboutUs from "@/components/AboutUs";
 
 export default function Home() {
   return (
@@ -14,6 +15,7 @@ export default function Home() {
       <ScrollStory />
       <VideoSection />
       <DonationForm />
+      <AboutUs />
       <FAQSection />
       <Footer />
     </main>
