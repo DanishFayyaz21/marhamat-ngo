@@ -225,6 +225,9 @@ function Hero() {
     const refs  = gsapRefs.current;
     const state = clipState.current;
 
+    // Guard: quickTo functions are set up in useEffect — bail if not ready
+    if (!refs.xTo || !refs.yTo || !refs.glowXTo || !refs.glowYTo) return;
+
     // Feed new position into quickTo — GSAP blends toward it smoothly
     refs.xTo(x);
     refs.yTo(y);
