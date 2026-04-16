@@ -46,7 +46,7 @@ const STICKY_STEPS = [
   },
   {
     image: "https://images.pexels.com/photos/10172985/pexels-photo-10172985.jpeg",
-    word: "Them",
+    word: "Support",
   },
   {
     image: "https://images.pexels.com/photos/17950300/pexels-photo-17950300.jpeg",
