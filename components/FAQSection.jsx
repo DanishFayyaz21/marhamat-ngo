@@ -295,33 +295,7 @@ function FAQSection() {
                 Donate Now
               </button>
 
-              {/* Secondary — outlined white (stays white on dark image bg) */}
-              <button
-                style={{
-                  display: "inline-flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  padding: "0.9rem 2.6rem",
-                  background: "transparent",
-                  color: "white",
-                  fontFamily: "var(--font-inter)",
-                  fontSize: "0.72rem",
-                  letterSpacing: "0.24em",
-                  textTransform: "uppercase",
-                  fontWeight: 400,
-                  cursor: "pointer",
-                  border: "1px solid rgba(255,255,255,0.45)",
-                  transition: "border-color 0.3s ease",
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.borderColor = "rgba(255,255,255,0.9)";
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.borderColor = "rgba(255,255,255,0.45)";
-                }}
-              >
-                Volunteer With Us
-              </button>
+           
             </div>
           </motion.div>
         </motion.div>
@@ -351,7 +325,7 @@ function FAQSection() {
               style={{
                 height: "18vh",
                 background:
-                  "linear-gradient(to bottom, #000 0%, transparent 100%)",
+                  "linear-gradient(to bottom, #ffffff 0%, transparent 100%)",
                 zIndex: 1,
               }}
             />
@@ -366,15 +340,15 @@ function FAQSection() {
             >
               {/* ── LEFT: Video (30%) — Full height ───────────────────── */}
               <motion.div
-                className="w-full md:w-[30%] shrink-0 flex flex-col"
+                className="w-full md:w-[30%] shrink-0 flex flex-col self-stretch"
                 initial={{ opacity: 0, x: -40 }}
                 animate={{ opacity: isInView ? 1 : 0, x: isInView ? 0 : -40 }}
                 transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
               >
-                {/* Video container — full height */}
+                {/* Video container — stretches to match right panel height */}
                 <div
-                  className="relative overflow-hidden w-full h-full"
-                  style={{ minHeight: "100%" }}
+                  className="relative overflow-hidden w-full flex-1"
+                  style={{ minHeight: 0 }}
                 >
                   <div
                     className="absolute top-8 left-8 z-20"
@@ -456,6 +430,41 @@ function FAQSection() {
                   paddingBottom: "clamp(4rem, 8vh, 7rem)",
                 }}
               >
+                {/* FAQ Heading */}
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: isInView ? 1 : 0, y: isInView ? 0 : 20 }}
+                  transition={{ duration: 0.8, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
+                  style={{ marginBottom: "clamp(1.5rem, 3vh, 2.5rem)" }}
+                >
+                  <p
+                    style={{
+                      fontFamily: "var(--font-inter)",
+                      fontSize: "0.65rem",
+                      letterSpacing: "0.32em",
+                      textTransform: "uppercase",
+                      color: "rgba(30,58,138,0.5)",
+                      marginBottom: "0.6rem",
+                    }}
+                  >
+                    Got Questions?
+                  </p>
+                  <h2
+                    style={{
+                      fontFamily: "var(--font-satoshi)",
+                      fontSize: "clamp(2rem, 4vw, 3.6rem)",
+                      fontWeight: 300,
+                      color: "#1e3a8a",
+                      letterSpacing: "0.01em",
+                      lineHeight: 1.1,
+                    }}
+                  >
+                    Frequently Asked
+                    <br />
+                    <span style={{ fontWeight: 600 }}>Questions</span>
+                  </h2>
+                </motion.div>
+
                 {/* FAQ accordion list */}
                 <div style={{ borderBottom: "1px solid rgba(30,58,138,0.1)" }}>
                   {FAQ_ITEMS.map((item, i) => (
