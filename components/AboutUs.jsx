@@ -9,7 +9,7 @@ const TEAM_MEMBERS = [
   {
     name: "Ayesha Khan",
     role: "Founder & Executive Director",
-    image: "https://images.pexels.com/photos/3810795/pexels-photo-3810795.jpeg?auto=compress&cs=tinysrgb&w=800",
+    image: "https://images.pexels.com/photos/21792036/pexels-photo-21792036.jpeg",
     bio: "Dedicated to orphan welfare for over 15 years.",
   },
   {
@@ -21,13 +21,13 @@ const TEAM_MEMBERS = [
   {
     name: "Fatima Zafar",
     role: "Head of Outreach",
-    image: "https://images.pexels.com/photos/3845256/pexels-photo-3845256.jpeg?auto=compress&cs=tinysrgb&w=800",
+    image: "https://images.pexels.com/photos/5488459/pexels-photo-5488459.jpeg",
     bio: "Connecting donors with families in need across Pakistan.",
   },
   {
     name: "Imran Ali",
     role: "Operations Manager",
-    image: "https://images.pexels.com/photos/2380794/pexels-photo-2380794.jpeg?auto=compress&cs=tinysrgb&w=800",
+    image: "https://images.pexels.com/photos/15930860/pexels-photo-15930860.jpeg",
     bio: "Ensuring every rupee reaches those who need it most.",
   },
 ];
