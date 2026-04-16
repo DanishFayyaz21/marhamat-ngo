@@ -9,6 +9,7 @@ import {
   useTransform,
   AnimatePresence,
 } from "framer-motion";
+import Link from "next/link";
 
 // ── Reveal image shown behind the FAQ curtain ─────────────────────────────────
 const REVEAL_IMAGE =
@@ -208,7 +209,6 @@ function FAQSection() {
     >
       {/* ── Sticky viewport ───────────────────────────────────────────────── */}
       <div className="sticky top-0 overflow-hidden" style={{ height: "100vh" }}>
-
         {/* ════════════════════════════════════════════════════════════════════
             LAYER 0 — Reveal image + contact content (behind the curtain)
         ════════════════════════════════════════════════════════════════════ */}
@@ -233,7 +233,8 @@ function FAQSection() {
             className="absolute top-0 left-0 right-0 pointer-events-none"
             style={{
               height: "22vh",
-              background: "linear-gradient(to bottom, #ffffff 0%, transparent 100%)",
+              background:
+                "linear-gradient(to bottom, #ffffff 0%, transparent 100%)",
             }}
           />
 
@@ -242,7 +243,8 @@ function FAQSection() {
             className="absolute bottom-0 left-0 right-0 pointer-events-none"
             style={{
               height: "22vh",
-              background: "linear-gradient(to top, #ffffff 0%, transparent 100%)",
+              background:
+                "linear-gradient(to top, #ffffff 0%, transparent 100%)",
             }}
           />
 
@@ -271,12 +273,11 @@ function FAQSection() {
 
             {/* CTA buttons */}
             <div className="flex flex-col sm:flex-row items-center gap-4">
-              {/* Primary — dark blue */}
-              <button
+              {/* Primary — dark blue - redirects to /donate */}
+              <Link
+                href="/#donate"
+                className="inline-flex items-center justify-center transition-all duration-300"
                 style={{
-                  display: "inline-flex",
-                  alignItems: "center",
-                  justifyContent: "center",
                   padding: "0.9rem 2.6rem",
                   background: "#1e3a8a",
                   color: "white",
@@ -287,15 +288,16 @@ function FAQSection() {
                   fontWeight: 500,
                   cursor: "pointer",
                   border: "none",
-                  transition: "background 0.3s ease",
                 }}
-                onMouseEnter={(e) => (e.currentTarget.style.background = "#1d4ed8")}
-                onMouseLeave={(e) => (e.currentTarget.style.background = "#1e3a8a")}
+                onMouseEnter={(e) =>
+                  (e.currentTarget.style.background = "#1d4ed8")
+                }
+                onMouseLeave={(e) =>
+                  (e.currentTarget.style.background = "#1e3a8a")
+                }
               >
                 Donate Now
-              </button>
-
-           
+              </Link>
             </div>
           </motion.div>
         </motion.div>
@@ -434,10 +436,13 @@ function FAQSection() {
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: isInView ? 1 : 0, y: isInView ? 0 : 20 }}
-                  transition={{ duration: 0.8, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
+                  transition={{
+                    duration: 0.8,
+                    delay: 0.1,
+                    ease: [0.22, 1, 0.36, 1],
+                  }}
                   style={{ marginBottom: "clamp(1.5rem, 3vh, 2.5rem)" }}
                 >
-                 
                   <h2
                     style={{
                       fontFamily: "var(--font-satoshi)",
@@ -489,7 +494,6 @@ function FAQSection() {
             </div>
           </div>
         </motion.div>
-
       </div>
     </section>
   );

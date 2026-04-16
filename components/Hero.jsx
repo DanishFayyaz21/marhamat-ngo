@@ -4,11 +4,7 @@ import { memo, useRef, useEffect, useCallback } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { gsap } from "gsap";
-import {
-  motion,
-  useScroll,
-  useTransform,
-} from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 
 // ─── AntlerIcon (unchanged) ──────────────────────────────────────────────────
 const AntlerIcon = memo(function AntlerIcon({ size = 28 }) {
@@ -27,8 +23,18 @@ const AntlerIcon = memo(function AntlerIcon({ size = 28 }) {
         strokeLinecap="round"
         strokeLinejoin="round"
       />
-      <path d="M18 14 L8 20" stroke="white" strokeWidth="2.2" strokeLinecap="round" />
-      <path d="M22 20 L14 24" stroke="white" strokeWidth="2.2" strokeLinecap="round" />
+      <path
+        d="M18 14 L8 20"
+        stroke="white"
+        strokeWidth="2.2"
+        strokeLinecap="round"
+      />
+      <path
+        d="M22 20 L14 24"
+        stroke="white"
+        strokeWidth="2.2"
+        strokeLinecap="round"
+      />
       <path
         d="M26 26 L34 14 L38 4"
         stroke="white"
@@ -36,8 +42,18 @@ const AntlerIcon = memo(function AntlerIcon({ size = 28 }) {
         strokeLinecap="round"
         strokeLinejoin="round"
       />
-      <path d="M34 14 L44 20" stroke="white" strokeWidth="2.2" strokeLinecap="round" />
-      <path d="M30 20 L38 24" stroke="white" strokeWidth="2.2" strokeLinecap="round" />
+      <path
+        d="M34 14 L44 20"
+        stroke="white"
+        strokeWidth="2.2"
+        strokeLinecap="round"
+      />
+      <path
+        d="M30 20 L38 24"
+        stroke="white"
+        strokeWidth="2.2"
+        strokeLinecap="round"
+      />
     </svg>
   );
 });
@@ -160,12 +176,12 @@ function Hero() {
 
   // ── GSAP cursor reveal refs ──────────────────────────────────────────────
   const colorLayerRef = useRef(null);
-  const glowRef       = useRef(null);
+  const glowRef = useRef(null);
   // Proxy object — GSAP animates these numeric values directly, no re-renders
-  const clipState     = useRef({ x: -9999, y: -9999, r: 0 });
-  const idleTimer     = useRef(null);
+  const clipState = useRef({ x: -9999, y: -9999, r: 0 });
+  const idleTimer = useRef(null);
   // Stores quickTo functions and active tween references between events
-  const gsapRefs      = useRef({
+  const gsapRefs = useRef({
     xTo: null,
     yTo: null,
     glowXTo: null,
@@ -176,14 +192,14 @@ function Hero() {
 
   useEffect(() => {
     const colorEl = colorLayerRef.current;
-    const glowEl  = glowRef.current;
+    const glowEl = glowRef.current;
     if (!colorEl || !glowEl) return;
 
     // Skip on touch-only devices — no cursor to track
     if (!window.matchMedia("(hover: hover)").matches) return;
 
     const state = clipState.current;
-    const refs  = gsapRefs.current;
+    const refs = gsapRefs.current;
 
     // Push glow off-screen until first cursor move
     gsap.set(glowEl, { xPercent: -50, yPercent: -50, x: -9999, y: -9999 });
@@ -207,8 +223,14 @@ function Hero() {
     });
 
     // Glow lags slightly — rubber friction haze behind the eraser
-    refs.glowXTo = gsap.quickTo(glowEl, "x", { duration: 0.6, ease: "power2.out" });
-    refs.glowYTo = gsap.quickTo(glowEl, "y", { duration: 0.6, ease: "power2.out" });
+    refs.glowXTo = gsap.quickTo(glowEl, "x", {
+      duration: 0.6,
+      ease: "power2.out",
+    });
+    refs.glowYTo = gsap.quickTo(glowEl, "y", {
+      duration: 0.6,
+      ease: "power2.out",
+    });
 
     return () => {
       gsap.killTweensOf(state);
@@ -219,10 +241,10 @@ function Hero() {
 
   const handleMouseMove = useCallback((e) => {
     const rect = e.currentTarget.getBoundingClientRect();
-    const x    = e.clientX - rect.left;
-    const y    = e.clientY - rect.top;
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
 
-    const refs  = gsapRefs.current;
+    const refs = gsapRefs.current;
     const state = clipState.current;
 
     // Guard: quickTo functions are set up in useEffect — bail if not ready
@@ -273,7 +295,7 @@ function Hero() {
 
   const handleMouseLeave = useCallback(() => {
     clearTimeout(idleTimer.current);
-    const refs  = gsapRefs.current;
+    const refs = gsapRefs.current;
     const state = clipState.current;
 
     if (refs.expandTween?.isActive()) refs.expandTween.kill();
@@ -297,11 +319,11 @@ function Hero() {
 
   // ── Phase 1: Initial hero content exits (0 → 0.10) ──────────────────────
   const contentY = useTransform(scrollYProgress, [0, 0.12], ["0%", "-28%"]);
-  const contentOpacity = useTransform(scrollYProgress, [0, 0.10], [1, 0]);
-  const contentBlurRaw = useTransform(scrollYProgress, [0, 0.10], [0, 10]);
-  const contentFilter  = useTransform(
+  const contentOpacity = useTransform(scrollYProgress, [0, 0.1], [1, 0]);
+  const contentBlurRaw = useTransform(scrollYProgress, [0, 0.1], [0, 10]);
+  const contentFilter = useTransform(
     contentBlurRaw,
-    (v) => `blur(${v.toFixed(2)}px)`
+    (v) => `blur(${v.toFixed(2)}px)`,
   );
 
   // Scroll indicator fades before content
@@ -314,7 +336,7 @@ function Hero() {
   const overlayOpacity = useTransform(
     scrollYProgress,
     [0.26, 0.36, 0.44, 0.52],
-    [0, 1, 1, 0]
+    [0, 1, 1, 0],
   );
   const overlayY = useTransform(scrollYProgress, [0.26, 0.36], ["24px", "0px"]);
 
@@ -322,28 +344,31 @@ function Hero() {
   const text1Opacity = useTransform(
     scrollYProgress,
     [0.54, 0.62, 0.68, 0.75],
-    [0, 1, 1, 0]
+    [0, 1, 1, 0],
   );
   const text1Y = useTransform(scrollYProgress, [0.54, 0.63], ["22px", "0px"]);
 
   // ── Phase 5: "Experience Méchante Cabane" — fade in, hold, fade out ─────
   const text2Opacity = useTransform(
     scrollYProgress,
-    [0.77, 0.85, 0.90, 0.96],
-    [0, 1, 1, 0]
+    [0.77, 0.85, 0.9, 0.96],
+    [0, 1, 1, 0],
   );
   const text2Y = useTransform(scrollYProgress, [0.77, 0.85], ["22px", "0px"]);
 
   return (
     // 550vh — generous room for all 5 animation phases
-    <section ref={containerRef} className="relative" style={{ height: "550vh" }}>
+    <section
+      ref={containerRef}
+      className="relative"
+      style={{ height: "550vh" }}
+    >
       {/* Sticky viewport — fixed while scrolling through the section */}
       <div
         className="sticky top-0 h-screen w-full overflow-hidden grain-overlay"
         onMouseMove={handleMouseMove}
         onMouseLeave={handleMouseLeave}
       >
-
         {/* ── Layer 1 (bottom): B&W image — always visible ── */}
         <motion.div
           className="absolute inset-0 will-change-transform"
@@ -439,17 +464,18 @@ function Hero() {
 
           <Link
             href="#donate"
-            className="group flex items-center gap-3 text-white/90 hover:text-white transition-colors duration-300"
+            className="group relative overflow-hidden border border-white/40 px-6 py-3 transition-all duration-300 hover:border-white/80"
             style={{
               fontFamily: "var(--font-inter)",
-              fontSize: "0.65rem",
-              letterSpacing: "0.25em",
+              fontSize: "0.7rem",
+              letterSpacing: "0.2em",
               textTransform: "uppercase",
             }}
           >
-            <span className="w-8 h-px bg-white/60 group-hover:w-12 group-hover:bg-white transition-all duration-300" />
-            Donate Now
-            <span className="w-8 h-px bg-white/60 group-hover:w-12 group-hover:bg-white transition-all duration-300" />
+            <span className="absolute inset-0 bg-white translate-x-[-100%] group-hover:translate-x-0 transition-transform duration-300" />
+            <span className="relative text-white group-hover:text-blue-900 transition-colors duration-300 font-medium">
+              Donate Now
+            </span>
           </Link>
         </motion.div>
 
