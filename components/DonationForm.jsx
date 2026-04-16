@@ -420,7 +420,7 @@ function DonationForm() {
                     placeholder="Or enter custom amount"
                     value={amount}
                     onChange={handleAmountChange}
-                    style={{ paddingLeft: "2rem" }}
+                    style={{ paddingLeft: "2.5rem" }}
                   />
                 </div>
               </Field>
