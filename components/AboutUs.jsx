@@ -173,7 +173,7 @@ function AboutPage() {
       {/* ──────────────────────────────────────────────────────────────────────
           HERO SECTION
       ────────────────────────────────────────────────────────────────────── */}
-      <section ref={heroRef} className="relative min-h-[70vh] flex items-center">
+      <section id="about" ref={heroRef} className="relative min-h-[70vh] flex items-center">
         {/* Background Image */}
         <div className="absolute inset-0 overflow-hidden">
           <Image

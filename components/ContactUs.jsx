@@ -167,7 +167,7 @@ function ContactPage() {
   };
 
   return (
-    <main className="bg-white">
+   <main id="contact" className="bg-white scroll-mt-24">
    
 
       {/* ──────────────────────────────────────────────────────────────────────
@@ -177,6 +177,7 @@ function ContactPage() {
         <div className="grid lg:grid-cols-2 gap-16">
           {/* LEFT: Contact Form */}
           <motion.div
+          
             ref={formRef}
             initial={{ opacity: 0, x: -40 }}
             animate={{ opacity: formInView ? 1 : 0, x: formInView ? 0 : -40 }}
